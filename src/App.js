@@ -1,16 +1,19 @@
-import './App.css';
-import React, {useState} from 'react';
-import Table from './components/Table';
+import "./App.css";
+import React, { useState } from "react";
+import Table from "./components/Table";
 
 function App() {
   //initialize currentColor state and grid state
-  const [grid, setGrid] = useState([['cell','cell'], ['cell','cell']]);
+  const [grid, setGrid] = useState([
+    ["cell", "cell"],
+    ["cell", "cell"],
+  ]);
   const [currentColor, setCurrentColor] = useState("");
 
-  function handleClickAddRow(){
+  function handleClickAddRow() {
     let newRow = [];
     let newGrid = [];
-    for (let i=0; i< grid[0].length; i++){
+    for (let i = 0; i < grid[0].length; i++) {
       newRow.push("cell");
     }
 
@@ -18,14 +21,20 @@ function App() {
     setGrid(newGrid);
   }
 
-  function handleClickAddColumn(){
-    let numRows =  grid.length;
+  function handleClickAddColumn() {
+    let numRows = grid.length;
     let newGrid = [...grid];
 
-    for(let i=0;i<numRows; i++){
+    for (let i = 0; i < numRows; i++) {
       newGrid[i].push("cell");
     }
 
+    setGrid(newGrid);
+  }
+
+  function handleClickRemoveRow() {
+    let newGrid = [...grid];
+    newGrid.splice(-1, 1);
     setGrid(newGrid);
   }
 
@@ -35,7 +44,7 @@ function App() {
 
       <button onClick={handleClickAddRow}>Add Row</button>
       <button onClick={handleClickAddColumn}>Add Column</button>
-      <button>Remove Row</button>
+      <button onClick={handleClickRemoveRow}>Remove Row</button>
       <button>Remove Column</button>
       <button>Color All</button>
       <button>Clear All</button>
@@ -43,7 +52,9 @@ function App() {
       <h2>Pick a color and change the color of a cell!</h2>
 
       <select>
-        <option value="choose" selected disabled>Choose a color</option>
+        <option value="choose" selected disabled>
+          Choose a color
+        </option>
         <option>Red</option>
         <option>Yellow</option>
         <option>Green</option>
