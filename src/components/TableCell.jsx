@@ -1,8 +1,8 @@
 import React from 'react'
 
-function TableCell() {
+function TableCell(props) {
   return (
-    <div>TableCell</div>
+    <td>cell</td>
   )
 }
 

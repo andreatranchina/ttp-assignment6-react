@@ -1,10 +1,15 @@
-import React from 'react'
-import TableCell from './TableCell'
+import React from "react";
+import TableCell from "./TableCell";
 
-function TableRow() {
+//manipulate inner array to return correct amount of rows
+function TableRow(props) {
   return (
-    <div>TableRow</div>
-  )
+    <tr>
+      {props.grid[0].map((cell) => {
+        return (<TableCell grid={props.grid} currentColor={props.currentColor}/>)
+      })}
+    </tr>
+  );
 }
 
-export default TableRow
+export default TableRow;

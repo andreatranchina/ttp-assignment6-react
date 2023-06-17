@@ -1,9 +1,18 @@
 import React from 'react'
 import TableRow from './TableRow'
 
-function Table() {
+function Table(props) {
   return (
-    <div>Table</div>
+    <table>
+      <tbody>
+        {props.grid.map((row) => {
+          return (
+            <TableRow grid={props.grid} currentColor={props.currentColor}/>
+            
+          )
+        })}
+      </tbody>
+    </table>
   )
 }
 
