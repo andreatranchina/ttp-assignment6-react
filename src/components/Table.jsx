@@ -3,11 +3,11 @@ import TableRow from './TableRow'
 
 function Table(props) {
   return (
-    <table>
+    <table style={{marginLeft:"auto", marginRight:"auto"}}>
       <tbody>
         {props.grid.map((row) => {
           return (
-            <TableRow grid={props.grid} currentColor={props.currentColor}/>
+            <TableRow grid={props.grid} currentColor={props.currentColor} mouseDown={props.mouseDown}/>
             
           )
         })}
