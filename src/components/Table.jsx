@@ -7,7 +7,7 @@ function Table(props) {
       <tbody>
         {props.grid.map((row) => {
           return (
-            <TableRow grid={props.grid} currentColor={props.currentColor}/>
+            <TableRow grid={props.grid} currentColor={props.currentColor} mouseDown={props.mouseDown}/>
             
           )
         })}

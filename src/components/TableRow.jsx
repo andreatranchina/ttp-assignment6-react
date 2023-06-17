@@ -6,7 +6,7 @@ function TableRow(props) {
   return (
     <tr>
       {props.grid[0].map((cell) => {
-        return (<TableCell grid={props.grid} currentColor={props.currentColor}/>)
+        return (<TableCell grid={props.grid} currentColor={props.currentColor} mouseDown={props.mouseDown}/>)
       })}
     </tr>
   );

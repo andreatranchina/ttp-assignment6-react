@@ -104,8 +104,13 @@ function App() {
     setMouseDown(true);
   }
 
+
+  function handleMouseUp(){
+    setMouseDown(false);
+  }
+
   return (
-    <div className="App">
+    <div className="App" onMouseUp={handleMouseUp}>
       <h1>ColorPicker</h1>
 
       <button onClick={handleClickAddRow}>Add Row</button>
@@ -129,7 +134,7 @@ function App() {
         <option>Orange</option>
       </select>
       <div onMouseDown={handleMouseDown}>
-        <Table grid={grid} currentColor={currentColor} />
+        <Table grid={grid} currentColor={currentColor} mouseDown={mouseDown}/>
       </div>
     </div>
   );

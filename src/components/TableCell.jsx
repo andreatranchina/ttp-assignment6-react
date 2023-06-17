@@ -4,12 +4,18 @@ import "./TableCell.css"
 function TableCell(props) {
 
     //receives the currentColor prop from table and uses it set the background color of the clicked cell
-    function handleClickColorCell(event){
+    function handleMouseOverColor(event){
+        if(props.mouseDown){
+            event.target.style.backgroundColor = props.currentColor;
+        }
+    }
+
+    function handleMouseDownColor(event){
         event.target.style.backgroundColor = props.currentColor;
     }
 
     return (
-        <td className="cell" onClick={handleClickColorCell}>cell</td>
+        <td className="cell" onMouseOver={handleMouseOverColor} onMouseDown={handleMouseDownColor}>cell</td>
     )
 }
 
