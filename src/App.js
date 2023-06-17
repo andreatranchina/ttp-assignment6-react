@@ -7,11 +7,22 @@ function App() {
   const [grid, setGrid] = useState([['cell','cell'], ['cell','cell']]);
   const [currentColor, setCurrentColor] = useState("");
 
+  function handleClickAddRow(){
+    let newRow = [];
+    let newGrid = [];
+    for (let i=0; i< grid[0].length; i++){
+      newRow.push("cell");
+    }
+
+    newGrid = [...grid, newRow];
+    setGrid(newGrid);
+  }
+
   return (
     <div className="App">
       <h1>ColorPicker</h1>
 
-      <button>Add Row</button>
+      <button onClick={handleClickAddRow}>Add Row</button>
       <button>Add Column</button>
       <button>Remove Row</button>
       <button>Remove Column</button>
