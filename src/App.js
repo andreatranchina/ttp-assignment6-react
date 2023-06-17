@@ -3,7 +3,8 @@ import React, {useState} from 'react';
 import Table from './components/Table';
 
 function App() {
-  const [grid, setGrid] = useState([[]]);
+  //initialize currentColor state and grid state
+  const [grid, setGrid] = useState([['cell','cell'], ['cell','cell']]);
   const [currentColor, setCurrentColor] = useState("");
 
   return (
@@ -28,7 +29,7 @@ function App() {
         <option>Purple</option>
         <option>Orange</option>
       </select>
-      <Table />
+      <Table grid={grid} currentColor={currentColor} />
     </div>
   );
 }
