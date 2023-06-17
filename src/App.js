@@ -112,18 +112,18 @@ function App() {
 
   return (
     <div className="App" onMouseUp={handleMouseUp}>
-      <h1>ColorPicker</h1>
+      <h1 className="nav">ColorPicker</h1>
 
-      <button onClick={handleClickAddRow}>Add Row</button>
-      <button onClick={handleClickAddColumn}>Add Column</button>
-      <button onClick={handleClickRemoveRow}>Remove Row</button>
-      <button onClick={handleClickRemoveColumn}>Remove Column</button>
-      <button>Color All</button>
-      <button>Clear All</button>
+      <button className="btn" onClick={handleClickAddRow}>Add Row</button>
+      <button className="btn" onClick={handleClickAddColumn}>Add Column</button>
+      <button className="btn" onClick={handleClickRemoveRow}>Remove Row</button>
+      <button className="btn" onClick={handleClickRemoveColumn}>Remove Column</button>
+      {/* <button>Color All</button>
+      <button>Clear All</button> */}
 
-      <h2>Pick a color and change the color of a cell!</h2>
+      <h2 className="instruction">Pick a color and change the color of a cell!</h2>
 
-      <select onChange={handleChangeCurrentColor}>
+      <select className="btn"onChange={handleChangeCurrentColor}>
         <option value="choose" selected disabled>
           Choose a color
         </option>

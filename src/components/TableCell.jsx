@@ -15,7 +15,7 @@ function TableCell(props) {
     }
 
     return (
-        <td className="cell" onMouseOver={handleMouseOverColor} onMouseDown={handleMouseDownColor}>cell</td>
+        <td className="cell" onMouseOver={handleMouseOverColor} onMouseDown={handleMouseDownColor}></td>
     )
 }
 
