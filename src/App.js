@@ -100,11 +100,12 @@ function App() {
     setCurrentColor(event.target.value);
   }
 
+  //when pressing mouse down on the grid, set mouse down to true
   function handleMouseDown(){
     setMouseDown(true);
   }
 
-
+  //when releasing mouse on the web page, set mouse down to up
   function handleMouseUp(){
     setMouseDown(false);
   }
