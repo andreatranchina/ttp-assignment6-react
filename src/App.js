@@ -9,6 +9,7 @@ function App() {
     ["cell", "cell"],
   ]);
   const [currentColor, setCurrentColor] = useState("");
+  const [mouseDown, setMouseDown] = useState(false);
 
   //function handleClickAddRow will be called upon clicking addRow button, will add a row to the grid
   function handleClickAddRow() {
@@ -93,6 +94,16 @@ function App() {
     }
   }
 
+  //called upon change in the select option, will update the state of the current color 
+  //and the current color state will be passed as a props to TableCell 
+  function handleChangeCurrentColor(event){
+    setCurrentColor(event.target.value);
+  }
+
+  function handleMouseDown(){
+    setMouseDown(true);
+  }
+
   return (
     <div className="App">
       <h1>ColorPicker</h1>
@@ -106,7 +117,7 @@ function App() {
 
       <h2>Pick a color and change the color of a cell!</h2>
 
-      <select>
+      <select onChange={handleChangeCurrentColor}>
         <option value="choose" selected disabled>
           Choose a color
         </option>
@@ -117,7 +128,9 @@ function App() {
         <option>Purple</option>
         <option>Orange</option>
       </select>
-      <Table grid={grid} currentColor={currentColor} />
+      <div onMouseDown={handleMouseDown}>
+        <Table grid={grid} currentColor={currentColor} />
+      </div>
     </div>
   );
 }

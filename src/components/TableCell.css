@@ -1,0 +1,6 @@
+.cell{
+    border: solid black 3px;
+    height: 100px;
+    width: 100px;
+    border-radius: 0.4rem;
+}

@@ -3,7 +3,7 @@ import TableRow from './TableRow'
 
 function Table(props) {
   return (
-    <table>
+    <table style={{marginLeft:"auto", marginRight:"auto"}}>
       <tbody>
         {props.grid.map((row) => {
           return (
