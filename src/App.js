@@ -18,12 +18,23 @@ function App() {
     setGrid(newGrid);
   }
 
+  function handleClickAddColumn(){
+    let numRows =  grid.length;
+    let newGrid = [...grid];
+
+    for(let i=0;i<numRows; i++){
+      newGrid[i].push("cell");
+    }
+
+    setGrid(newGrid);
+  }
+
   return (
     <div className="App">
       <h1>ColorPicker</h1>
 
       <button onClick={handleClickAddRow}>Add Row</button>
-      <button>Add Column</button>
+      <button onClick={handleClickAddColumn}>Add Column</button>
       <button>Remove Row</button>
       <button>Remove Column</button>
       <button>Color All</button>
