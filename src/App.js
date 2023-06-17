@@ -10,32 +10,87 @@ function App() {
   ]);
   const [currentColor, setCurrentColor] = useState("");
 
+  //function handleClickAddRow will be called upon clicking addRow button, will add a row to the grid
   function handleClickAddRow() {
-    let newRow = [];
-    let newGrid = [];
-    for (let i = 0; i < grid[0].length; i++) {
-      newRow.push("cell");
+    let numRows = grid.length;
+    let numCols = grid[0].length;
+    //if grid is empty, set grid to include one single cell (one row by one column)
+    if (numRows===0 || numCols ===0){
+      setGrid([["cell"]]);
+    }
+    //else create a new row that has as many cells as the number of columns
+    else {
+      let newRow = [];
+      let newGrid = [[]];
+      for (let i = 0; i < grid[0].length; i++) {
+        newRow.push("cell");
+      }
+  
+      newGrid = [...grid, newRow];
+      setGrid(newGrid);
     }
 
-    newGrid = [...grid, newRow];
-    setGrid(newGrid);
   }
 
+  //function handleClickAddColumn will be called upon clicking addRow button, will add a column to the grid
   function handleClickAddColumn() {
     let numRows = grid.length;
-    let newGrid = [...grid];
+    let numCols = grid[0].length;
 
-    for (let i = 0; i < numRows; i++) {
-      newGrid[i].push("cell");
+    //if grid is empty, set grid to include one single cell (one row by one column)    
+    if (numRows === 0 || numCols ===0){
+      // let newRow = [];
+      // let newGrid = [[]];
+      // newRow.push("cell");
+      // newGrid.push(newRow);
+      // setGrid(newGrid);      
+      setGrid([["cell"]]);
     }
 
-    setGrid(newGrid);
+    //else iterate through each row and add a cell in order to complete the new column
+    else{
+      let newGrid = [...grid];
+      for (let i = 0; i < numRows; i++) {
+        newGrid[i].push("cell");
+      } 
+      setGrid(newGrid);
+    }
   }
 
+  //handleClickRemoveRow() will be called upon clicking the remove row button, will remove a row from the grid
   function handleClickRemoveRow() {
-    let newGrid = [...grid];
-    newGrid.splice(-1, 1);
-    setGrid(newGrid);
+    let numRows = grid.length;
+    //if there is only one row in the grid, set the grid to an empty grid
+    if (numRows ===1){
+      setGrid([[]]);
+    }
+    //else remove the last element(row) from the grid
+    else if (numRows !== 0){
+      let newGrid = [...grid];
+      newGrid.splice(-1, 1);
+      setGrid(newGrid);
+    }
+
+  }
+
+  //handleClickRemoveColumn() will be called upon clicking the remove column button, will remove a column from the grid  
+  function handleClickRemoveColumn(){
+    let numCols = grid[0].length;
+
+    //if there is only one column in the grid, set the grid to an empty grid    
+    if (numCols ===1){
+      setGrid([[]]);
+    }
+
+    //else iterate through each row of the grid and remove the last "cell" element in order to remove the entire column
+    else if (numCols !==0){
+      let numRows = grid.length;
+      let newGrid = [...grid];
+      for (let i=0; i<numRows; i++){
+        newGrid[i].splice(-1, 1);
+      }
+      setGrid(newGrid);
+    }
   }
 
   return (
@@ -45,7 +100,7 @@ function App() {
       <button onClick={handleClickAddRow}>Add Row</button>
       <button onClick={handleClickAddColumn}>Add Column</button>
       <button onClick={handleClickRemoveRow}>Remove Row</button>
-      <button>Remove Column</button>
+      <button onClick={handleClickRemoveColumn}>Remove Column</button>
       <button>Color All</button>
       <button>Clear All</button>
 
