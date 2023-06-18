@@ -110,6 +110,12 @@ function App() {
     setMouseDown(false);
   }
 
+  //added event listener in order to register mouseup when releasing outside of window
+  document.addEventListener("mouseup", () =>{
+    setMouseDown(false);
+  })
+  
+
   return (
     <div className="App" onMouseUp={handleMouseUp}>
       <h1 className="nav">ColorPicker</h1>
