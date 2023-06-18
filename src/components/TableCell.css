@@ -4,3 +4,7 @@
     width: 100px;
     border-radius: 0.4rem;
 }
+
+.cell:hover{
+    cursor: pointer;
+}
