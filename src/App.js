@@ -6,7 +6,7 @@ function App() {
   /*initialize grid state, grid state will maintain size of grid and colors
   of the individual cells*/
   const [grid, setGrid] = useState([
-    ["red", "cell"],
+    ["cell", "cell"],
     ["cell", "cell"],
   ]);
   //initialize currentColor and mouseDown state

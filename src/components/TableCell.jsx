@@ -17,8 +17,6 @@ function TableCell(props) {
     }
 
     return (
-        // <td className="cell" onMouseOver={handleMouseOverColor} onMouseDown={handleMouseDownColor}
-        // style={{backgroundColor: props.cellColor}}></td>
         <td className="cell" onMouseOver={handleMouseOverColor} onMouseDown={handleMouseDownColor}
             style={{backgroundColor: props.cellColor}}
         ></td>

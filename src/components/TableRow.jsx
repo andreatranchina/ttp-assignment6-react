@@ -1,7 +1,7 @@
 import React from "react";
 import TableCell from "./TableCell";
 
-//manipulate inner array to return correct amount of rows
+//manipulate inner array of grid (row passed as props) to return the correct number of cells in each row
 function TableRow(props) {
   return (
     <tr>
