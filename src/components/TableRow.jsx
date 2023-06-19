@@ -5,8 +5,11 @@ import TableCell from "./TableCell";
 function TableRow(props) {
   return (
     <tr>
-      {props.grid[0].map((cell) => {
-        return (<TableCell grid={props.grid} currentColor={props.currentColor} mouseDown={props.mouseDown}/>)
+      {props.row.map((cell, index) => {
+        return (<TableCell grid={props.grid} currentColor={props.currentColor} mouseDown={props.mouseDown}
+          cellColor= {cell} rowNumber = {props.rowNumber} columnNumber = {index}
+          changeCellColor={props.changeCellColor}
+        />)
       })}
     </tr>
   );
