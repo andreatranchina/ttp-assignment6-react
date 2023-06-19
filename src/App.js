@@ -21,16 +21,18 @@ function App() {
     if (numRows===0 || numCols ===0){
       setGrid([["cell"]]);
     }
-    //else create a new row that has as many cells as the number of columns
+    //else create a new row that has as many cells as the number of columns and add it to grid state
     else {
       let newRow = [];
-      let newGrid = [[]];
+      // let newGrid = [[]];
       for (let i = 0; i < grid[0].length; i++) {
         newRow.push("cell");
       }
-  
-      newGrid = [...grid, newRow];
-      setGrid(newGrid);
+      // newGrid = [...grid, newRow];
+      // setGrid(newGrid);
+      setGrid((prevValue) =>{
+        return [...prevValue, newRow];
+      })
     }
 
   }
@@ -41,12 +43,7 @@ function App() {
     let numCols = grid[0].length;
 
     //if grid is empty, set grid to include one single cell (one row by one column)    
-    if (numRows === 0 || numCols ===0){
-      // let newRow = [];
-      // let newGrid = [[]];
-      // newRow.push("cell");
-      // newGrid.push(newRow);
-      // setGrid(newGrid);      
+    if (numRows === 0 || numCols ===0){    
       setGrid([["cell"]]);
     }
 
@@ -84,7 +81,6 @@ function App() {
     if (numCols ===1){
       setGrid([[]]);
     }
-
     //else iterate through each row of the grid and remove the last "cell" element in order to remove the entire column
     else if (numCols !==0){
       let numRows = grid.length;
